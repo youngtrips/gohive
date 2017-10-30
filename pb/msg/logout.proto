@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package msg;
+
+message Logout {
+    message Req {
+        required int64 account      = 1;
+    }
+    message Res {
+        required int32 code         = 1;
+    }
+}

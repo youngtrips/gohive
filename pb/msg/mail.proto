@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package msg;
+
+import "def/mail.proto";
+
+message GetMails {
+    message Req {
+        optional int64 id                    = 1;
+    }
+    message Res {
+        required int32 code                  = 1;
+        repeated def.Mail mails              = 2;
+    }
+}
+

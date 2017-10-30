@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package cfg;
+
+message Item {
+    required int32 idx      = 1;
+    optional string icon    = 2;
+}

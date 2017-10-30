@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package msg;
+
+import "def/user.proto";
+
+message Login {
+    message Req {
+        required string token    = 1;
+    }
+    message Res {
+        required int32 code      = 1;
+        optional def.User user   = 2;
+    }
+}

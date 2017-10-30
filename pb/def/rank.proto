@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package def;
+
+import "def/user.proto";
+
+message Rank {
+    message Item {
+        required int32 rank             = 1;
+        required int64 val              = 2;
+        optional def.UserBrief user     = 3;
+    }
+    required int32 type                 = 1;
+    repeated Item items                 = 2;
+};
+

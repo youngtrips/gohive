@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package def;
+
+message Account {
+    required int64 id                = 1;
+    required string username         = 2;
+    required string password         = 3;
+    optional string device_id        = 4;
+    optional string phone            = 6;
+    optional int32 status            = 8;
+    optional int64 createtime        = 10;
+}

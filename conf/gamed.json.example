@@ -1,0 +1,21 @@
+{
+    "id" : 2002,
+    "type": 10,
+    "services" : ["gate"],
+    "etcd":{
+        "endpoints":"http://127.0.0.1:2379",
+        "dial_timeout":200,
+        "insecure_transport":false,
+        "insecure_skip_tls_verify":false,
+        "security" : {
+            "ca_file":"keys/ca.pem",
+            "cert_file":"keys/client.pem",
+            "key_file":"keys/client-key.pem"
+        }
+    },
+    "redis" : {
+        "host": "127.0.0.1",
+        "port": 6379
+    }
+}
+

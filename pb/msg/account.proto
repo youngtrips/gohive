@@ -1,0 +1,84 @@
+syntax = "proto2";
+
+package msg;
+
+message Auth {
+    message Req {
+        optional string version      = 1;
+        optional string username     = 2;
+        optional string password     = 3;
+        optional string device_id    = 4;
+    }
+    message Res {
+        required int32 code          = 1;
+        optional string token        = 2;
+        optional string addr         = 3;
+    }
+}
+
+message Registry {
+    message Req {
+        required string username     = 1;
+        required string password     = 2;
+    }
+    message Res {
+        required int32 code          = 1;
+        optional string token        = 2;
+        optional string addr         = 3;
+    }
+}
+
+message BindAccount {
+    message Req {
+        required int64 account_id    = 1;
+        required string username     = 2;
+        required string password     = 3;
+    }
+    message Res {
+        required int32 code          = 1;
+    }
+}
+
+message BindPhone {
+    message Req {
+        required int64 account_id    = 1;
+        required string password     = 2;
+        required string phone        = 3;
+        required string code         = 4;
+    }
+    message Res {
+        required int32 code          = 1;
+    }
+}
+
+message VerificationCode {
+    message Req {
+        required string phone        = 1;
+    }
+    message Res {
+        required int32 code          = 1;
+    }
+}
+
+message ResetPassword {
+    message Req {
+        required int64 account_id    = 1;
+        required string code         = 2;
+        required string new_password = 3;
+    }
+    message Res {
+        required int32 code          = 1;
+    }
+}
+
+message ChangePassword {
+    message Req {
+        required int64 account_id    = 1;
+        required string password     = 2;
+        required string new_password = 3;
+    }
+    message Res {
+        required int32 code          = 1;
+    }
+}
+

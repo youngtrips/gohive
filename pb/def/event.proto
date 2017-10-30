@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package def;
+
+message Event {
+    required int32 oper         = 1; // 事件类型
+    optional int32 arg_a        = 2; // 参数A
+    optional int32 arg_b        = 3; // 参数B
+    optional int64 arg_64       = 4; // 64位值参数
+    optional string arg_str     = 5; // 字符型参数
+}

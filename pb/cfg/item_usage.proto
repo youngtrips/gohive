@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package cfg;
+
+message ItemUsage {
+    required int32 idx   = 1;
+    required int32 event = 2;
+    optional int32 arg_a = 3;
+    optional int32 arg_b = 4;
+}

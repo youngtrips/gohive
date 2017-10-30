@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package service;
+
+message Packet {
+    int64 peer          = 1;
+    string api          = 2;
+    bytes payload       = 3;
+}
+
+service GameService {
+	rpc Stream(stream Packet) returns (stream Packet);
+}
+

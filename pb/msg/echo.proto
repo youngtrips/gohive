@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package msg;
+
+message Echo {
+    message Req {
+        optional int64 val   = 1;
+        optional int64 ct    = 2;
+    }
+    message Res {
+        optional int64 val   = 1;
+        optional int64 ct    = 2;
+    }
+}

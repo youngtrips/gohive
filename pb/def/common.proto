@@ -1,0 +1,59 @@
+syntax = "proto2";
+
+package def;
+
+enum ResCode {
+    RC_OK                           = 0;
+    RC_SERVER_INTERNAL_ERROR        = 1;
+    RC_COMMON_SERVER_NOT_READY      = 101;
+    RC_AUTH_INVALID_USER            = 201;
+    RC_ACCOUNT_CREATE_FAILED        = 202;
+    RC_ACCOUNT_CREATE_DUPLICATE     = 203;
+    RC_ACCOUNT_NO_FOUND             = 204;
+    RC_ACCOUNT_PHONE_INVALID        = 205;
+    RC_ACCOUNT_VERIFICATION_EXPIRED = 206;
+    RC_ACCOUNT_VERIFICATION_INVALID = 207;
+    RC_GS_NOT_CONNECTED             = 1001;
+    RC_LOGIN_TOKEN_INVALID          = 2001;
+    RC_LOGIN_TOKEN_EXPIRED          = 2002;
+    RC_LOGIN_USER_CREATE_FAILED     = 2003;
+}
+
+enum AccountStatus {
+    ACCOUNT_STATUS_INVALID          = 0;
+    ACCOUNT_STATUS_OPEN             = 1;
+    ACCOUNT_STATUS_LOCKED           = 2;
+    ACCOUNT_STATUS_DELETED          = 4;
+}
+
+enum MailStatus {
+    MAIL_STATUS_NEW                 = 0;
+    MAIL_STATUS_READED              = 1;
+    MAIL_STATUS_EXTRACED            = 2;
+    MAIL_STATUS_DELETED             = 4;
+}
+
+enum SceneType {
+    SCENE_NONE                      = 0;
+    SCENE_LOBBY                     = 1;
+    SCENE_SLOTS                     = 10;
+}
+
+enum ItemType {
+    ITEM_NONE                       = 0;
+    ITEM_GOLD                       = 100;
+    ITEM_DIAMOND                    = 101;
+    ITEM_CARD                       = 102;
+}
+
+enum EventType {
+    EVENT_NONE                      = 0;
+    EVENT_USER_RENAME               = 1001; // 改名
+    EVENT_USER_MOD_ICON             = 1002; // 修改头像
+    EVENT_USER_MOD_MOTTO            = 1003; // 修改签名
+    EVENT_SCENE_ENTER               = 2001; // 进入场景
+    EVENT_SCENE_LEAVE               = 2002; // 离开场景
+    EVENT_ITEM_USE                  = 3001; // 使用道具
+    EVENT_ITEM_GIFT                 = 3002; // 赠送道具
+}
+

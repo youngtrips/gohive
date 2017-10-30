@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package def;
+
+message Item {
+    required int64 id                = 1;
+    required int32 idx               = 2;
+    required int64 num               = 3;
+    required int64 create_time       = 4;
+    required int64 update_time       = 5;
+}

@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package msg;
+
+import "def/rank.proto";
+
+message GetRank {
+    message Req {
+        optional int32 type            = 1;
+    }
+    message Res {
+        required int32 code            = 1;
+        optional def.Rank rank         = 2;
+    }
+}

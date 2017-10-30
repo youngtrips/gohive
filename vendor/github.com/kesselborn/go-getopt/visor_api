@@ -1,0 +1,128 @@
+optionDefinition := getopt.SubCommandOptions{
+    "*": {
+      {"command", "command to execute", getopt.IsSubcommand, ""}},
+    "list": { },
+    "describe":{
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""}},
+    "register": {
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"deploytype|t", "deploy type (one of mount, bazapta, lxc)", getopt.Optional | getopt.ExampleIsDefault, "lxc"},
+      {"repourl|r", "repository url of this app", getopt.Optional | getopt.ExampleIsDefault, "http://github.com/soundcloud/<name>"},
+      {"stack|s", "stack version this app should be pinned to -- ommit if you always want the latest stack", getopt.Optional, ""},
+      {"irc|i", "comma separated list of irc channels where a deploy should be announced", getopt.Optional | getopt.ExampleIsDefault, "deploys"}},
+    "unregister": {
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""}},
+    "setenv": {
+      {"name", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"key", "environment variable's name", getopt.IsArg | getopt.Required, ""},
+      {"value", "environment variable's value (omit in order to delete variable)", getopt.IsArg | getopt.Optional, ""}},
+    "getenv": {
+      {"name", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"key", "environment variable's name", getopt.IsArg | getopt.Required, ""}},
+    "env": {
+      {"name", "app's name", getopt.IsArg | getopt.Required, ""}}
+    "revisions": {
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""}}
+}
+
+
+Usage: prog -p <param> <command>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+optionDefinition := getopt.SubSubCommandOptions{
+  "*" : { 
+    {"config|c", "config file", getopt.IsConfigFile | getopt.ExampleIsDefault, "/etc/visor.conf"},
+    {"server|s", "doozer server", getopt.Required, ""},
+    {"port|p", "port the doozer server is listening on", getopt.Optional | getopt.ExampleIsDefault, "8046"},
+    {"root|r", "visor namespace within doozer: all entries will be prepended with this path", getopt.Optional | getopt.ExampleIsDefault, "/visor"},
+    {"scope", "scope a command should be executed on; call 'visor help' for an overview", getopt.IsSubcommand, ""},
+    {"command", "command to execute", getopt.IsSubcommand, ""}},
+
+  "app" : {
+    "*": {
+      {"command", "command to execute", getopt.IsSubcommand, ""}},
+    "list": { },
+    "describe":{
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""}},
+    "register": {
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"deploytype|t", "deploy type (one of mount, bazapta, lxc)", getopt.Optional | getopt.ExampleIsDefault, "lxc"},
+      {"repourl|r", "repository url of this app", getopt.Optional | getopt.ExampleIsDefault, "http://github.com/soundcloud/<name>"},
+      {"stack|s", "stack version this app should be pinned to -- ommit if you always want the latest stack", getopt.Optional, ""},
+      {"irc|i", "comma separated list of irc channels where a deploy should be announced", getopt.Optional | getopt.ExampleIsDefault, "deploys"}},
+    "unregister": {
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""}},
+    "setenv": {
+      {"name", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"key", "environment variable's name", getopt.IsArg | getopt.Required, ""},
+      {"value", "environment variable's value (omit in order to delete variable)", getopt.IsArg | getopt.Optional, ""}},
+    "getenv": {
+      {"name", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"key", "environment variable's name", getopt.IsArg | getopt.Required, ""}},
+    "env": {
+      {"name", "app's name", getopt.IsArg | getopt.Required, ""}}
+    "revisions": {
+      {"name|n", "app's name", getopt.IsArg | getopt.Required, ""}}
+  },
+
+  "revision": {
+    "*" : {
+      {"command", "command to execute", getopt.IsSubcommand, ""}},
+    "list": {
+      {"app|n", "app's name", getopt.IsArg | getopt.Required, ""}},
+    "describe": {
+      {"app|n", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"rev|v", "revision", getopt.IsArg | getopt.Optional | getopt.ExampleIsDefault, "HEAD"}},
+    "register": {
+      {"app", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"rev", "revision", getopt.IsArg | getopt.Required, ""},
+      {"artifacturl|u", "url of the build artifact for this application-revision", getopt.Required, ""},
+      {"proctypes|t", "comma seperated list of proc types available in this application-revision", getopt.Optional, ""}},
+    "unregister": {
+      {"app", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"rev", "revision", getopt.IsArg | getopt.Required, ""}},
+    "scale": {
+      {"app", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"rev", "revision", getopt.IsArg | getopt.Required, ""},
+      {"proc", "proc type that is to be scaled", getopt.IsArg |  getopt.Required, ""},
+      {"num", "number of instances that should be running of this app-rev-proc-type (N for absolute values, -N for scaling down by N, +N for scaling up by N)", getopt.IsArg | getopt.Required, ""}},
+    "instances": {
+      {"app", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"rev", "revision", getopt.IsArg | getopt.Required, ""}},
+    "instances": {
+      {"app", "app's name", getopt.IsArg | getopt.Required, ""},
+      {"rev", "revision", getopt.IsArg | getopt.Required, ""}},
+  },
+
+  "instance": {
+    "*" : {
+      {"command", "command to execute", getopt.IsSubcommand, ""}},
+    "describe": {
+      {"instanceid", "id of the instance (<hostname>:<port>)", getopt.IsArg | getopt.Required, ""}},
+    "tail": {
+      {"instanceid", "id of the instance (<hostname>:<port>)", getopt.IsArg | getopt.Required, ""},
+    "kill": {
+      {"instanceid", "id of the instance (<hostname>:<port>)", getopt.IsArg | getopt.Required, ""},
+      {"signalname|s", "signal to send to instance (according to the normal unix kill command)", getopt.Optional | getopt.ExampleIsDefault, "SIGTERM"}}
+  }
+}

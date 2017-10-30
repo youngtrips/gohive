@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package msg;
+
+import "def/event.proto";
+
+message SetEvent {
+    message Req {
+        required def.Event event    = 1;
+    }
+    message Res {
+        required int32 code         = 2;
+    }
+}

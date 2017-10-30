@@ -1,0 +1,26 @@
+syntax = "proto2";
+
+package msg;
+
+import "def/item.proto";
+
+message GiftItems {
+    message Req {
+        required int64 dst_id       = 1;
+        required int32 item_idx     = 2;
+        required int32 item_num     = 3;
+    }
+    message Res {
+        required int32 code         = 1;
+    }
+}
+
+message GetItems {
+    message Req {
+        optional int32 idx          = 1;
+    }
+    message Res {
+        required int32 code         = 1;
+        repeated def.Item items     = 2;
+    }
+}

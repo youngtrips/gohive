@@ -1,0 +1,31 @@
+{
+    "id":1001,
+    "anet" : {
+        "addr": ":3017",
+        "advertise_addr": "192.168.1.109",
+        "max_events" : 65535
+    },
+
+    "grpc":{
+        "name" : "gate",
+        "addr":":3018",
+        "ssl_enable":false,
+        "ssl_key":{
+            "ca_file":"cfssl/ca.pem",
+            "cert_file":"cfssl/server.pem",
+            "key_file":"cfssl/server-key.pem"
+        }
+    },
+
+    "etcd":{
+        "endpoints":"http://127.0.0.1:2379",
+        "dial_timeout":200,
+        "insecure_transport":false,
+        "insecure_skip_tls_verify":false,
+        "security" : {
+            "ca_file":"keys/ca.pem",
+            "cert_file":"keys/client.pem",
+            "key_file":"keys/client-key.pem"
+        }
+    }
+}

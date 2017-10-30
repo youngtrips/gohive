@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package def;
+
+message Server {
+    required int32 id        = 1;
+    required int32 type      = 2;
+    required int32 status    = 3;
+    required int32 port      = 4;
+    required string ip       = 5;
+    required string version  = 6;
+}

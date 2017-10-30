@@ -1,0 +1,9 @@
+{
+    "access_key": "xxxxxxxxxxxxx",
+    "access_secret": "yyyyyyyyyyyyyyyyyyyyyyy",
+    "SMS" : {
+        "url" : "http://dysmsapi.aliyuncs.com",
+        "sign_name": "zzzzzzz",
+        "template_code" : "aaaaaa"
+    }
+}
